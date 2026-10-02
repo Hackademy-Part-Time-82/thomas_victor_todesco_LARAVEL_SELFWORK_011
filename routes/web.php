@@ -16,10 +16,17 @@ Route::get('/authors-index', [AuthorController::class, 'index'])->name('authors.
 Route::get('/register-your-book', [BookController::class, 'create'])->name('create')->middleware('auth');
 //questa rotta rimanda alla pagina con il form per la registrazione dei libri
 //rotta CREATE
+Route::get('/register-authors', [AuthorController::class, 'create'])->name('authors.create')->middleware('auth');
+
+
+
+
 
 Route::post('/store-book', [BookController::class, 'store'])->name('store');
 //rotta post per regisrare libro su DB al click sul button
 //rotta POST
+Route::post('/store-author', [AuthorController::class, 'store'])->name('authors.store');
+
 
 
 Route::get('/my-account', [UserController::class, 'index'])->name('user.index')->middleware('auth');
@@ -38,7 +45,7 @@ Route::get('/modifica-libro-{book}', [BookController::class, 'edit'])->name('boo
 
 Route::put('/aggiorna/libro{book}', [BookController::class, 'update'])->name('book.update')->middleware('auth');
 //rotta post per applicare modifiche al libro 
-//rotta UPDATE
+//rotta UPDATE //correggi in plurale
 
 Route::delete('/elimina-libro-{book}', [BookController::class, 'destroy'])->name('book.destroy')->middleware('auth');
 //rotta post per cancellare un libro 

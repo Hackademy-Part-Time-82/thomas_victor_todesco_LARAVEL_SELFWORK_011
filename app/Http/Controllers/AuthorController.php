@@ -13,7 +13,10 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('author.index');
+        $authors=Author::all();
+        return view('author.index', [
+            'authors'=>$authors,
+        ]);
     }
 
     /**
@@ -21,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view ('author.create');
     }
 
     /**
@@ -29,7 +32,11 @@ class AuthorController extends Controller
      */
     public function store(StoreAuthorRequest $request)
     {
-        //
+        $author=Author::create([
+           'name'=>$request->input('name'),
+           'surname'=>$request->input('surname'),
+           ]);
+           return redirect()->route('authors.create')->with('success', "Autore inserito correttamente in archivio");
     }
 
     /**
