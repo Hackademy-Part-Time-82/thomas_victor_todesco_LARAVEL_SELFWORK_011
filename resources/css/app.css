@@ -1,0 +1,103 @@
+@import 'bootstrap';
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+    --lumen-ink: #1f1a16;
+    --lumen-paper: #f4efe6;
+    --lumen-gold: #b8894a;
+    --lumen-deep: #2c241c;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--lumen-paper);
+    color: var(--lumen-ink);
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.navbar-lumen {
+    background-color: var(--lumen-deep);
+}
+
+.navbar-lumen .navbar-brand,
+.navbar-lumen .nav-link {
+    color: #f4efe6;
+}
+
+.navbar-lumen .nav-link:hover,
+.navbar-lumen .nav-link.active {
+    color: var(--lumen-gold);
+}
+
+.navbar-lumen .navbar-toggler {
+    border-color: rgba(244, 239, 230, 0.4);
+}
+
+.navbar-lumen .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.brand-mark {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.hero-lumen {
+    background:
+        linear-gradient(120deg, rgba(44, 36, 28, 0.92), rgba(44, 36, 28, 0.72)),
+        radial-gradient(circle at top right, #d4b483, #2c241c);
+    color: #f4efe6;
+}
+
+.hero-lumen .lead {
+    color: rgba(244, 239, 230, 0.85);
+}
+
+.btn-lumen {
+    background-color: var(--lumen-gold);
+    border-color: var(--lumen-gold);
+    color: var(--lumen-deep);
+}
+
+.btn-lumen:hover {
+    background-color: #a6773c;
+    border-color: #a6773c;
+    color: #fff;
+}
+
+.card-lumen {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.75rem 1.5rem rgba(31, 26, 22, 0.08);
+}
+
+.icon-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgba(184, 137, 74, 0.18);
+    color: var(--lumen-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.footer-lumen {
+    background-color: var(--lumen-deep);
+    color: rgba(244, 239, 230, 0.8);
+}
+
+.page-heading {
+    letter-spacing: 0.04em;
+}
