@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\UserController;
@@ -7,10 +8,10 @@ use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
-
 Route::get('/books', [BookController::class, 'index'])->name('index');
 //questa rotta rimanda alla pagina dell'elenco dei libri
-//rotta INDEX
+//rotta INDEX]
+Route::get('/authors-index', [AuthorController::class, 'index'])->name('authors.index');
 
 Route::get('/register-your-book', [BookController::class, 'create'])->name('create')->middleware('auth');
 //questa rotta rimanda alla pagina con il form per la registrazione dei libri

@@ -16,8 +16,10 @@
         {{-- show if  logged in --}}
         @auth
             <span class="navbar-text rounded-pill p-2 btn-lumen">
-                <i class="bi bi-person-fill"></i> <a class="link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover " href="{{ route('user.index') }}">Benvenuto {{ Auth::user()->name }}</a>
-               {{-- navbar-lumen  --}}
+                <i class="bi bi-person-fill"></i> <a
+                    class="link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover "
+                    href="{{ route('user.index') }}">Benvenuto {{ Auth::user()->name }}</a>
+                {{-- navbar-lumen  --}}
                 {{-- 
                 link offset-*-hover ->, distanza tra sottolineatura e testo quando ci passi sopra
                 link-underline link-underline-opacity-0 -> sottolineatura a 0 di base
@@ -30,7 +32,7 @@
                 <button type="submit" class="ms-2 p-2 nav-link">Esci dall'account</button>
             </form>
         @endauth
-        {{--END show if  logged in --}}
+        {{-- END show if  logged in --}}
 
 
         <div class="collapse navbar-collapse" id="navbarLumen">
@@ -44,6 +46,11 @@
                     <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}"
                         href="{{ route('index') }}">Catalogo</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}"
+                        href="{{ route('authors.index') }}">Autori</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('create') ? 'active' : '' }}"
                         href="{{ route('create') }}">Registra un libro</a>
@@ -51,7 +58,7 @@
 
                 {{-- show if not logged in --}}
                 @guest
-                    
+
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('register') ? 'active' : '' }}"
                             href="{{ route('register') }}">Registrati</a>
@@ -68,9 +75,9 @@
 
         </div>
 
-{{--         <span class="navbar-text text-white">
+        {{--         <span class="navbar-text text-white">
             Benvenuto __nome utente dinamico__
         </span> --}}
-        
+
     </div>
 </nav>
