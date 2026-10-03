@@ -23,7 +23,7 @@
 
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
-                            <a href="#" class="btn btn-primary">Button</a>
+                            <a href="{{ route('authors.edit', ['author'=>$author]) }}" class="btn btn-primary">Modifica i dati dell'autore</a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
             <div class="col-lg-8"> {{-- d-flex flex-column text-center --}}
                 <h3 class="text-center">Libri scritti da {{ $author->name }} {{ $author->surname }}</h3>
 
-                <div class="col-lg-10 table-responsive mt-3">
+                <div class="col-lg-10 table-responsive mt-3 d-flex justify-content-center">
                     <table class="table">
                         <thead>
                             <tr>

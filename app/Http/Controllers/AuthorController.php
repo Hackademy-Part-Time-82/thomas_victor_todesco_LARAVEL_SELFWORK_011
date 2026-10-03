@@ -52,7 +52,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return view('author.edit', ['author'=>$author]);
     }
 
     /**
@@ -60,7 +60,12 @@ class AuthorController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        //
+        $author->update([
+            'name'=>$request->input('name'),
+            'surname'=>$request->input('surname')
+        ]);
+        return redirect()->route('authors.show', ['author'=>$author])->with('success', "Autore modificato con successo");
+
     }
 
     /**

@@ -21,14 +21,14 @@ Route::post('/store-author', [AuthorController::class, 'store'])->name('authors.
 Route::get('/my-account', [UserController::class, 'index'])->name('user.index')->middleware('auth');
 
 
-Route::get('/scheda-{author}', [AuthorController::class, 'show'])->name('authors.show');
+Route::get('/scheda-autore-{author}', [AuthorController::class, 'show'])->name('authors.show');
+Route::get('/edit-author-{author}', [AuthorController::class, 'edit'])->name('authors.edit');
+Route::put('/update-author-{author}', [AuthorController::class, 'update'])->name('authors.update');
 
 
-
-
-Route::get('/scheda-{book}', [BookController::class, 'show'])->name('show');
+Route::get('/scheda-libro-{book}', [BookController::class, 'show'])->name('show');
 Route::get('/modifica-libro-{book}', [BookController::class, 'edit'])->name('books.edit')->middleware('auth');
-Route::put('/aggiorna/libro{book}', [BookController::class, 'update'])->name('book.update')->middleware('auth');
+Route::put('/aggiorna/libro-{book}', [BookController::class, 'update'])->name('book.update')->middleware('auth');
 Route::delete('/elimina-libro-{book}', [BookController::class, 'destroy'])->name('book.destroy')->middleware('auth');
 
 
