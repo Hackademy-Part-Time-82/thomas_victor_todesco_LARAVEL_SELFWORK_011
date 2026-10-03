@@ -14,6 +14,7 @@
 
                     <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        
 
                         <div class="mb-3">
 
@@ -42,10 +43,21 @@
                         </div>
 
                         <div class="mb-4">
+                            <select class="form-select" aria-label="Default select example" name="author_id">
+                                <option selected>Scegli tra gli autori</option>
+                                @foreach ($authors as $author)
+                                    <option value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+
+                        <div class="mb-4">
                             <label class="form-label" for="image">Copertina</label>
                             <input class="form-control" id="image" type="file" placeholder="Copertina del libro"
                                 name="image" value="">
                         </div>
+
 
                         <div class="d-flex flex-wrap justify-content-between gap-2">
                             <button class="btn btn-lumen" type="submit">Invia</button>

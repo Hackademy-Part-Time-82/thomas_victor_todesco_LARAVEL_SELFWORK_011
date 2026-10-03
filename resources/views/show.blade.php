@@ -12,13 +12,12 @@
             {{-- scheda del libro LEFT --}}
             <div class="col-lg-4 border-end border-black">
                 <div class="card p-3" //style="width:18rem;">
-                            <x-book_image :$book />
+                    <x-book_image :$book />
 
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ $book->title }}.</h5>
+                        <h5 class="card-title text-center">{{ $book->title }}</h5>
                     </div>
                 </div>
-
 
 
 
@@ -30,19 +29,28 @@
 
                 <div class="flex-grow-1 d-flex justify-content-center align-items-center">
                     <ul>
-                        <li> <h5>Pagine: {{$book->pages }}</h5> </li>
-                        <li> <h5>Anno di publicazione: {{$book->year }}</h5> </li>
+                        <li>
+                            <h5>Pagine: {{ $book->pages }}</h5>
+                        </li>
+                        <li>
+                            <h5>Anno di publicazione: {{ $book->year }}</h5>
+                        </li>
+                        <li>
+                            <h5>Scritto da: {{ $book->author?->name ?? 'ND' }} {{ $book->author?->surname ?? 'ND' }} </h5>
+                        </li>
+
                     </ul>
                 </div>
 
                 <div class="col-lg-12 text-center">
                     @auth
-                    @if (auth()->user()->id == $book->user_id)
-                    {{ Auth::user()->name }}, se necessario puoi apportare modifiche il tuo libro!
-                    <div class="d-lg-flex justify-content-center mt-3 ">
-                        <a href="{{ route('books.edit', ['book'=>$book]) }}" class="btn btn-primary col-lg-2">Modifica libro</a>
-                    </div>
-                    @endif
+                        @if (auth()->user()->id == $book->user_id)
+                            {{ Auth::user()->name }}, se necessario puoi apportare modifiche il tuo libro!
+                            <div class="d-lg-flex justify-content-center mt-3 ">
+                                <a href="{{ route('books.edit', ['book' => $book]) }}"
+                                    class="btn btn-primary col-lg-2">Modifica libro</a>
+                            </div>
+                        @endif
                     @endauth
                 </div>
 

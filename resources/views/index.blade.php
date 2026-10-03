@@ -15,6 +15,7 @@
                                         <th scope="col" class="text-center">Titolo</th>
                                         <th scope="col" class="text-center">Anno</th>
                                         <th scope="col" class="text-center">Pagine</th>
+                                        <th scope="col" class="text-center">Scritto da</th>
                                         <th scope="col" class="text-center">Vai al dettaglio</th>
                                     </tr>
                                 </thead>
@@ -29,9 +30,10 @@
                                                     </label>
                                                 </div>
                                             </th> --}}
-                                            <td class="text-center"> {{ $book->title }}</td>
+                                            <td class="text-center"> {{$book->title }}</td>
                                             <td class="text-center">{{ $book->year }}</td>
                                             <td class="text-center">{{ $book->pages }}</td>
+                                            <td class="text-center">{{ $book->author?->name ?? 'ND' }} {{ $book->author?->surname ?? 'ND' }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
 

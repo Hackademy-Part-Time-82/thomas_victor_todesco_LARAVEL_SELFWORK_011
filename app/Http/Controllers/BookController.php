@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookStoreRequest;
 use App\Mail\BookMail;
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -23,11 +24,13 @@ class BookController extends Controller
 
     public function create()
     {
-        return view('create');
+        $authors=Author::all();
+        return view('create', ['authors'=>$authors]);
     }
 
     public function store(BookStoreRequest $request)
     {
+        
         $path_image = '';
         if ($request->hasFile('image')) {
             $book_folder= 'covers/'. Str::slug($request->input('title'));
@@ -40,7 +43,7 @@ class BookController extends Controller
                 'pages' => $request->input('pages'),
                 'image' => $path_image,
                 'user_id' => auth()->user()->id,
-                //inserire author_id??
+                'author_id'=>$request->input('author_id')
         ]);
         //Mail::to('tommytod93@gmail.com')->send(new BookMail($book));
         return redirect()->route('create')->with('success', "Libro inserito correttamente in archivio");
