@@ -62,9 +62,9 @@ class AuthorController extends Controller
     {
         $author->update([
             'name'=>$request->input('name'),
-            'surname'=>$request->input('surname')
-        ]);
-        return redirect()->route('authors.show', ['author'=>$author])->with('success', "Autore modificato con successo");
+            'surname'=>$request->input('surname'),
+            ]);
+            return redirect()->route('authors.show', ['author'=>$author])->with('success', "Autore modificato con successo");
 
     }
 
@@ -73,6 +73,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->route('authors.index')->with('success', 'Autore eliminato correttamente!');
     }
 }

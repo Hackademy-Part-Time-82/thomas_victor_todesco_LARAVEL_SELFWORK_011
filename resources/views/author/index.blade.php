@@ -1,5 +1,11 @@
 <x-layout>
         <section class="container py-5">
+
+                @if (session('success'))
+        <div class="col-lg-4 alert alert-success" role="alert"">
+            {{ session('success') }}
+        </div>
+    @endif
         <div class="row justify-content-center">
             <div class="col-lg-9">
                 <p class="text-uppercase small text-secondary mb-1 page-heading">Collezione</p>

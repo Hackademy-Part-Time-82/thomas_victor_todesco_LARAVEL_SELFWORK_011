@@ -1,5 +1,6 @@
 <x-layout>
 
+
     <section class="container-lg mt-5">
 
         <div class="row">
@@ -19,11 +20,12 @@
                     <div class="card w-50">
                         <div class="card-body">
 
-                                {{-- inserisci controllo per utente loggato che ha inserito autore --}}                                    
+                            {{-- inserisci controllo per utente loggato che ha inserito autore --}}
 
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
-                            <a href="{{ route('authors.edit', ['author'=>$author]) }}" class="btn btn-primary">Modifica i dati dell'autore</a>
+                            <a href="{{ route('authors.edit', ['author' => $author]) }}" class="btn btn-primary">Modifica
+                                i dati dell'autore</a>
                         </div>
                     </div>
                 </div>

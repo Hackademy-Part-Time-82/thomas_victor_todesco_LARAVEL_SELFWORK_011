@@ -24,6 +24,7 @@ Route::get('/my-account', [UserController::class, 'index'])->name('user.index')-
 Route::get('/scheda-autore-{author}', [AuthorController::class, 'show'])->name('authors.show');
 Route::get('/edit-author-{author}', [AuthorController::class, 'edit'])->name('authors.edit');
 Route::put('/update-author-{author}', [AuthorController::class, 'update'])->name('authors.update');
+Route::delete('/delete-author-{author}', [AuthorController::class, 'destroy'])->name('authors.destroy');
 
 
 Route::get('/scheda-libro-{book}', [BookController::class, 'show'])->name('show');
