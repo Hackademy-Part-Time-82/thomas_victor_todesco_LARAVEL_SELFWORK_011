@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthorController extends Controller
 {
@@ -35,6 +36,7 @@ class AuthorController extends Controller
         $author=Author::create([
            'name'=>$request->input('name'),
            'surname'=>$request->input('surname'),
+           'user_id'=>Auth::user()->id,
            ]);
            return redirect()->route('authors.create')->with('success', "Autore inserito correttamente in archivio");
     }

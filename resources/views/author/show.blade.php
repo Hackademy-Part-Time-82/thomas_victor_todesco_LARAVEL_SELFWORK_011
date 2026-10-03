@@ -21,7 +21,7 @@
                         <div class="card-body">
 
                             {{-- inserisci controllo per utente loggato che ha inserito autore --}}
-
+                            
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
                             <a href="{{ route('authors.edit', ['author' => $author]) }}" class="btn btn-primary">Modifica

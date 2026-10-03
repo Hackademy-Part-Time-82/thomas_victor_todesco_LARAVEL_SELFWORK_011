@@ -16,13 +16,13 @@ Route::post('/store-book', [BookController::class, 'store'])->name('store');
 
 Route::get('/authors-index', [AuthorController::class, 'index'])->name('authors.index');
 Route::get('/register-authors', [AuthorController::class, 'create'])->name('authors.create')->middleware('auth');
-Route::post('/store-author', [AuthorController::class, 'store'])->name('authors.store');
+Route::post('/store-author', [AuthorController::class, 'store'])->name('authors.store')->middleware('auth');
 
 Route::get('/my-account', [UserController::class, 'index'])->name('user.index')->middleware('auth');
 
 
 Route::get('/scheda-autore-{author}', [AuthorController::class, 'show'])->name('authors.show');
-Route::get('/edit-author-{author}', [AuthorController::class, 'edit'])->name('authors.edit');
+Route::get('/edit-author-{author}', [AuthorController::class, 'edit'])->name('authors.edit')->middleware('auth');
 Route::put('/update-author-{author}', [AuthorController::class, 'update'])->name('authors.update');
 Route::delete('/delete-author-{author}', [AuthorController::class, 'destroy'])->name('authors.destroy');
 
