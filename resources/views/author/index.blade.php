@@ -33,8 +33,7 @@
                                             <td>
                                                 <div class="d-flex justify-content-center">
 
-                                                    <a href="#"
-                                                        class="p-2 mx-auto btn btn-outline-primary text-center rounded-pill">Dettagli</a>
+                                                    <a href="{{ route('authors.show', ['author'=>$author]) }}"class="p-2 mx-auto btn btn-outline-primary text-center rounded-pill">Dettagli</a>
                                                 </div>
                                             </td>
                                         </tr>
