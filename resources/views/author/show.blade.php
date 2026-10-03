@@ -21,11 +21,15 @@
                         <div class="card-body">
 
                             {{-- inserisci controllo per utente loggato che ha inserito autore --}}
-                            
+
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
-                            <a href="{{ route('authors.edit', ['author' => $author]) }}" class="btn btn-primary">Modifica
-                                i dati dell'autore</a>
+                            @auth
+                                @if ($author->user_id == Auth::user()->id)
+                                <a href="{{ route('authors.edit', ['author' => $author]) }}" class="btn btn-primary">Modifica  i dati dell'autore</a>
+                                @endif
+                            @endauth
+                               
                         </div>
                     </div>
                 </div>
