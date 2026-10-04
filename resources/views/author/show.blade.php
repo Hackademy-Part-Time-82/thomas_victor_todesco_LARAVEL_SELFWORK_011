@@ -22,7 +22,7 @@
 
                             {{-- inserisci controllo per utente loggato che ha inserito autore --}}
 
-                            <p class="card-text text-center">Nessun dettaglio per questo autore.
+                            <p class="card-text text-center">Autore inserito da {{ $author->user->name }}.
                             </p>
                             @auth
                                 @if ($author->user_id == Auth::user()->id)

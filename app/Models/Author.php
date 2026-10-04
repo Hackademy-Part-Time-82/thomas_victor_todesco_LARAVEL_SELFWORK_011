@@ -11,6 +11,9 @@ class Author extends Model
     public function books(){
         return $this->hasMany(Book::class);
     }
-
     //perchè books? 1 autore può avere N libri
-}
+
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
+}    //perchè User? più autori inseriti da 1 utente

@@ -29,4 +29,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function authors () {
+        return $this->hasMany(Author::class);
+    }
+    //perchè 1 utente può inserire diversi autori
 }
