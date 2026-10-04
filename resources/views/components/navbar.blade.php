@@ -48,7 +48,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('index') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->routeIs('authors.index') ? 'active' : '' }}"
                         href="{{ route('authors.index') }}">Autori</a>
                 </li>
                 <li class="nav-item">

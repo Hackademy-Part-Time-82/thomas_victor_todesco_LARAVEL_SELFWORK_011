@@ -26,10 +26,11 @@
                             </p>
                             @auth
                                 @if ($author->user_id == Auth::user()->id)
-                                <a href="{{ route('authors.edit', ['author' => $author]) }}" class="btn btn-primary">Modifica  i dati dell'autore</a>
+                                    <a href="{{ route('authors.edit', ['author' => $author]) }}"
+                                        class="btn btn-primary">Modifica i dati dell'autore</a>
                                 @endif
                             @endauth
-                               
+
                         </div>
                     </div>
                 </div>
@@ -43,32 +44,27 @@
                 <div class="col-lg-10 table-responsive mt-3 d-flex justify-content-center">
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
+                            @forelse ($author->books as $book)
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Titolo</th>
+                                    <th scope="col">Pagine</th>
+                                    <th scope="col">Dettagli</th>
+                                </tr>
                         </thead>
                         <tbody>
+
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th scope="row">{{ $book->id }}</th>
+                                <td>{{ $book->title }}</td>
+                                <td>{{ $book->pages }}</td>
+                                <td><a href="">Dettagli</a></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>@social</td>
-                            </tr>
+                        @empty
+                            <div class="col-lg-8 alert alert-danger">
+                                Nessun libro disponibile per questo autore!
+                            </div>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

@@ -45,7 +45,9 @@ class AuthorController extends Controller
      * Display the specified resource.
      */
     public function show(Author $author)
-    {
+    {   
+        //$books = Book::where('author_id', $author->id)->get();
+        // non serve più fare questta chiamata in quanto c'è la relazione one to many nei model ->guarda la view
         return view('author.show', ['author'=>$author]);
     }
 
